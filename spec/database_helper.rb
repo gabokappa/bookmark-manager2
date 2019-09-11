@@ -9,3 +9,9 @@ def populate_test_database
   con.exec "INSERT INTO bookmarks (title, url) VALUES('Bing', 'http://www.bing.com')"
   con.exec "INSERT INTO bookmarks (title, url) VALUES('Destroy', 'http://www.destroyallsoftware.com')"
 end
+
+def persisted_data(id:)
+  connection = PG.connect(dbname: 'bookmark_manager_test')
+  result = connection.query("SELECT * FROM bookmarks WHERE id = #{id};")
+  result.first
+end

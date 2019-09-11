@@ -1,17 +1,25 @@
 # comment
 require 'pg'
 class Bookmark
-  attr_reader :name
+  attr_reader :id, :url, :title
+
+  def initialize (id:, url:, title:)
+    @id = id
+    @url = url
+    @title = title
+  end
+
 
   def self.all
     open_db_connection
     rs = @con.exec "SELECT * FROM bookmarks"
-    rs.map { |bookmark| [bookmark['url'], bookmark['title']] }
+    rs.map { |bookmark| Bookmark.new(id: bookmark['id'], url: bookmark['url'], title: bookmark['title'])}
   end
 
   def self.add(new_title, new_url)
     open_db_connection
-    @con.exec "INSERT INTO bookmarks (title, url) VALUES ('#{new_title}', '#{new_url}')"
+    result = @con.exec("INSERT INTO bookmarks (title, url) VALUES ('#{new_title}', '#{new_url}') RETURNING id, title, url;")
+    Bookmark.new(id: result[0]['id'], url: result[0]['url'], title: result[0]['title'])
   end
 
 private

@@ -25,7 +25,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks/store'do
-    Bookmark.add(params[:url])
+    Bookmark.add(params[:title],params[:url])
     redirect '/bookmarks'
   end
   run! if app_file == $PROGRAM_NAME

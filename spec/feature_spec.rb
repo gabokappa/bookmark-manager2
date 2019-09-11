@@ -19,8 +19,9 @@ feature 'Add Bookmark' do
     populate_test_database
     visit '/'
     click_button 'add_bookmark'
+    fill_in :title, with: 'BBC'
     fill_in :url,  with: 'http://www.bbc.co.uk'
     click_button 'submit'
-    expect(page).to have_content 'http://www.bbc.co.uk'
+    expect(page).to have_content 'BBC'
   end
 end

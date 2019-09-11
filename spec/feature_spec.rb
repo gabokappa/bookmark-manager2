@@ -31,7 +31,8 @@ feature 'Delete bookmark' do
     trunc_test_database
     populate_test_database
     visit '/bookmarks'
-    click_button 'Google'
+    expect(page).to have_link(href: 'http://www.google.com')
+    first('.bookmark').click_button 'Delete'
     expect(page).to have_no_link(href: 'http://www.google.com')
   end
 end

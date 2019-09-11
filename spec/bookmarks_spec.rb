@@ -42,7 +42,7 @@ describe '#delete' do
     Bookmark.add('Google', 'http://www.google.com')
     bookmarks = Bookmark.all
     expect(bookmarks.length).to eq 3
-    bookmark.delete
+    Bookmark.delete(bookmark.id)
     bookmarks = Bookmark.all
     expect(bookmarks.length).to eq 2
   end

@@ -22,9 +22,9 @@ class Bookmark
     Bookmark.new(id: result[0]['id'], url: result[0]['url'], title: result[0]['title'])
   end
 
-  def delete
-      @con = PG.connect :dbname => 'bookmark_manager_test'
-    rs = @con.exec "DELETE FROM bookmarks WHERE id = '#{@id}'"
+  def self.delete(id)
+    open_db_connection
+    rs = @con.exec "DELETE FROM bookmarks WHERE id = '#{id}'"
   end
 
 private

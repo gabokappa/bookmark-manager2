@@ -8,6 +8,11 @@ User story 2:
   so that I can come back to my favourite websites easily
   I want add to my bookmarks
 
+User story 3:
+  As a User
+  so that I can keep my bookmarks tidy
+  I want to delete bookmarks
+
 Domain model for user story 1:
   Class                               Class
   List                                Bookmarks

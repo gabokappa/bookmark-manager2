@@ -32,3 +32,18 @@ describe '#all' do
 
   end
 end
+
+describe '#delete' do
+  it 'deletes a bookmark' do
+    trunc_test_database
+    con = PG.connect(dbname: 'bookmark_manager_test')
+    bookmark = Bookmark.add('Makers Academy', 'http://www.makersacademy.com')
+    Bookmark.add('Destroy All Software', 'http://www.destroyallsoftware.com')
+    Bookmark.add('Google', 'http://www.google.com')
+    bookmarks = Bookmark.all
+    expect(bookmarks.length).to eq 3
+    bookmark.delete
+    bookmarks = Bookmark.all
+    expect(bookmarks.length).to eq 2
+  end
+end

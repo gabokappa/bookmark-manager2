@@ -25,3 +25,13 @@ feature 'Add Bookmark' do
     expect(page).to have_link('BBC', href: 'http://www.bbc.co.uk')
   end
 end
+
+feature 'Delete bookmark' do
+  scenario 'remove bookmark from list' do
+    trunc_test_database
+    populate_test_database
+    visit '/bookmarks'
+    click_button 'Google'
+    expect(page).to have_no_link(href: 'http://www.google.com')
+  end
+end

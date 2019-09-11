@@ -1,10 +1,13 @@
 <h1> Bookmarks </h1>
-<ul>
-  <% @bookmarks.each do |bookmark| %>
+<form action='/bookmarks'>
+  <ul>
+    <% @bookmarks.each do |bookmark| %>
     <li>
       <a href ="<%= bookmark.url%>" >
         <%=bookmark.title %>
       </a>
+      <button type='submit' name='delete' value="<%= bookmark.title%>">delete</button>
     </li>
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
+</form>

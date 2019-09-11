@@ -6,7 +6,7 @@ class Bookmark
   def self.all
     open_db_connection
     rs = @con.exec "SELECT * FROM bookmarks"
-    p rs.map { |bookmark| bookmark['url'] + bookmark['title'] }
+    rs.map { |bookmark| [bookmark['url'], bookmark['title']] }
   end
 
   def self.add(new_title, new_url)

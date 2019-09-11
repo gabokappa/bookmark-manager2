@@ -18,9 +18,9 @@ private
 
   def self.open_db_connection
     if ENV['ENVIRONMENT'] == 'test' then
-      @con = PG.connect :dbname => 'bookmark_manager_test', :user => 'student'
+      @con = PG.connect :dbname => 'bookmark_manager_test'
     else
-      @con = PG.connect :dbname => 'bookmark_manager', :user => 'student'
+      @con = PG.connect :dbname => 'bookmark_manager'
     end
   end
 

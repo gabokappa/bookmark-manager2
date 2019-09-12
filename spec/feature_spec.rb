@@ -36,3 +36,17 @@ feature 'Delete bookmark' do
     expect(page).to have_no_link(href: 'http://www.google.com')
   end
 end
+
+# feature 'Update bookmark' do
+#   scenario 'update a bookmark from the list' do
+#     trunc_test_database
+#     populate_test_database
+#     visit '/bookmarks'
+#     expect(page).to have_link('Google', href: 'http://www.google.com')
+#     first('.bookmark').click_button 'Edit'
+#     fill_in :title, with: 'Test'
+#     fill_in :url, with: 'http://www.test.com'
+#     click_button 'submit'
+#     expect(page).to have_link('Test', href: 'http://www.test.com')
+#   end
+# end

@@ -7,7 +7,7 @@
         <%=bookmark.title %>
       </a>
       <form action="/bookmarks/<%=bookmark.id%>" method="post">
-        <input type='hidden' name='_method' value='DELETE'/>
+        <input type='hidden' name='_method' value='delete'/>
         <input type='submit' value='Delete'/>
       <!-- <button type='submit' name='Delete' value="<%= bookmark.title%>">delete</button> -->
       </form>

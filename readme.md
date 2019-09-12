@@ -102,3 +102,4 @@ This is the line that you need to include(also with the bookmark.id so that you 
 ```
 <li class="bookmark" id="bookmark"-<%= bookmark.id %>">
 ```
+Not sure what this section is for: -<%= bookmark.id %>">
